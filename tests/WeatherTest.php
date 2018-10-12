@@ -22,7 +22,7 @@ class WeatherTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // 断言异常消息为 'Invalid type value(base/all): foo'
-        $this->expectExceptionMessage('Invalid type value(base/all): foo');
+        $this->expectExceptionMessage('Invalid type value(live/forecast): foo');
 
         $w->getWeather('深圳', 'foo');
 
@@ -81,7 +81,7 @@ class WeatherTest extends TestCase
         $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
         $w->allows()->getHttpClient()->andReturn($client);
 
-        $this->assertSame('<hello>content</hello>', $w->getWeather('深圳', 'all', 'xml'));
+        $this->assertSame('<hello>content</hello>', $w->getWeather('深圳', 'forecast', 'xml'));
     }
 
     public function testGetWeatherWithGuzzleRuntimeException()
@@ -121,5 +121,25 @@ class WeatherTest extends TestCase
 
         // 设置参数后，timeout 为 5000
         $this->assertSame(5000, $w->getHttpClient()->getConfig('timeout'));
+    }
+
+    public function testGetLiveWeather()
+    {
+        // 将 getWeather 接口模拟为返回固定内容，以测试参数传递是否正确
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('深圳', 'live', 'json')->andReturn(['success' => true]);
+
+        // 断言正确传参并返回
+        $this->assertSame(['success' => true], $w->getLiveWeather('深圳'));
+    }
+
+    public function testGetForecastsWeather()
+    {
+        // 将 getWeather 接口模拟为返回固定内容，以测试参数传递是否正确
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('深圳', 'forecast', 'json')->andReturn(['success' => true]);
+
+        // 断言正确传参并返回
+        $this->assertSame(['success' => true], $w->getForecastsWeather('深圳'));
     }
 }
