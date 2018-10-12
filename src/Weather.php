@@ -21,7 +21,7 @@ class Weather
         return new Client($this->guzzleOptions);
     }
 
-    public function setGuzzleOptions(array $options)
+    public function setGuzzleOptions($options)
     {
         $this->guzzleOptions = $options;
     }
