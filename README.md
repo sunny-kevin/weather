@@ -6,7 +6,7 @@
 ## Installing
 
 ```shell
-$ composer require sunnykevin//weather -vvv
+$ composer require sunny-kevin/weather -vvv
 ```
 
 ## Usage
