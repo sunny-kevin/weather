@@ -1,9 +1,10 @@
-<h1 align="center"> /weather </h1>
+<h1 align="center"> weather </h1>
 
-<p align="center"> A weather SDK.</p>
+<p align="center">:rainbow 基于高德地图的 PHP 天气信息组件。</p>
 
+[![Build Status](https://travis-ci.org/overtrue/weather.svg?branch=master)](https://travis-ci.org/overtrue/weather)
 
-## Installing
+## 安装
 
 ```shell
 $ composer require sunny-kevin/weather -vvv
