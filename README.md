@@ -3,6 +3,7 @@
 <p align="center">:rainbow: 基于高德地图的 PHP 天气信息组件。</p>
 
 [![Build Status](https://travis-ci.org/sunny-kevin/weather.svg?branch=master)](https://travis-ci.org/sunny-kevin/weather)
+![StyleCI build status](https://github.styleci.io/repos/152709775/shield) 
 
 ## 安装
 
