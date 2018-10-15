@@ -1,8 +1,8 @@
 <h1 align="center"> weather </h1>
 
-<p align="center">:rainbow 基于高德地图的 PHP 天气信息组件。</p>
+<p align="center">:rainbow: 基于高德地图的 PHP 天气信息组件。</p>
 
-[![Build Status](https://travis-ci.org/overtrue/weather.svg?branch=master)](https://travis-ci.org/overtrue/weather)
+[![Build Status](https://travis-ci.org/sunny-kevin/weather.svg?branch=master)](https://travis-ci.org/sunny-kevin/weather)
 
 ## 安装
 
