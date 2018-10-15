@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the sunny-kevin/weather.
+ *
+ * (c) sunnykevin <i@sunnykevin.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace SunnyKevin\Weather;
 
 use GuzzleHttp\Client;
@@ -9,6 +18,7 @@ use SunnyKevin\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key;
+
     protected $guzzleOptions = [];
 
     public function __construct($key)
@@ -30,7 +40,9 @@ class Weather
      * @param $city
      * @param string $type
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -48,7 +60,7 @@ class Weather
             throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
-        if (!\in_array(\strtolower($type), ['live','forecast'])) {
+        if (!\in_array(\strtolower($type), ['live', 'forecast'])) {
             throw new InvalidArgumentException('Invalid type value(live/forecast): '.$type);
         }
 
@@ -57,7 +69,7 @@ class Weather
             'key' => $this->key,
             'city' => $city,
             'output' => \strtolower($format),
-            'extensions' =>  \strtolower($types[$type]),
+            'extensions' => \strtolower($types[$type]),
         ]);
 
         try {
